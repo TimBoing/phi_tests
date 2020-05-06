@@ -1,0 +1,8 @@
+<div class="container">
+  <%= link_to "Create a story", new_story_path  %>
+  <ul class="list-group">
+    <% @stories.each do |story| %>
+      <li class="list-group-item"><%= link_to story.name, story_path(story) %></li>
+    <% end %>
+  </ul>
+</div>

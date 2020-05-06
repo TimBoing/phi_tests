@@ -1,0 +1,8 @@
+<div class="container centerd-vertically">
+  <h1>Welcome to the creator! Create a new story :</h1>
+  <%= simple_form_for @story do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

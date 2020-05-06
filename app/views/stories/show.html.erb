@@ -1,0 +1,14 @@
+<div class="container">
+  <h1><%= @story.name %></h1>
+  <h2><%= @story.description %></h2>
+  <p><%= @story.situations.count %> Situations on this story</p>
+  <% if @story.situations.count == 0 %>
+    <%= link_to "Create the first situation for this story", new_story_situation_path(@story) %>
+  <% else %>
+    <%= link_to "Go to initial situation", story_situation_path(@story, @story_start_situation)  %>
+  <% end %>
+</div>
+
+création d´ une situation initiale
+donc création d´ une situation
+création de 2 choix

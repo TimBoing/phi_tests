@@ -1,27 +1,5 @@
-<div class="container">
+<div class="container centered-vertically">
+  <p><%= @situation.description %></p>
 
-  <div class="my-container">
-    <div class="headers-container">
-      Some header and previous possibility
-    </div>
-    <textarea id="area" rows="4" cols="50">
-      <%= @situation %>
-    </textarea>
-    <div class="buttons-container">
-      <input type="button" value="choix a">
-      <input type="button" value="choix b">
-    </div>
-  </div>
 </div>
 
-
-J´ai la description et les choix de la situation à laquelle je suis
-Quand je click sur le bouton choix a alors la description et les choix changent sans changer de page
-je dois donc gérer en js une ajax request qui check si la situation à laquelle je suis a bien un choice a id
-Si cette situation a bien un choice a id alors display les infos pour la situation qui a cet id
-si cette situation n´en a pas alors champs vide qui permet de créer une nouvelle situation
-il me faut donc un bouton save/edit relié a une ajax request qui crée une nouvelle situation ou update une situation existante
-Comment cette requete va-t-elle savoir si elle doit créer ou updater?
-Elle doit checker si un dataset d´ un element du dom correspond à une id de situation ou pas
-si ya pas d´id alors tu crée et tu remplace le dataset par l´ id
-si ya

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'situations#show'
+  root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :situations
+  resources :stories do
+    resources :situations
+  end
 end
+

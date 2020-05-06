@@ -10,16 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_04_161313) do
+ActiveRecord::Schema.define(version: 2020_05_06_100427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "situations", force: :cascade do |t|
+  create_table "choices", force: :cascade do |t|
     t.string "description"
-    t.string "choice_a"
-    t.string "choice_b"
-    t.string "previous_situation"
+    t.bigint "previous_situation_id"
+    t.bigint "next_situation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["next_situation_id"], name: "index_choices_on_next_situation_id"
+    t.index ["previous_situation_id"], name: "index_choices_on_previous_situation_id"
+  end
+
+  create_table "situations", force: :cascade do |t|
+    t.bigint "story_id"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["story_id"], name: "index_situations_on_story_id"
+  end
+
+  create_table "start_situations", force: :cascade do |t|
+    t.bigint "story_id"
+    t.bigint "situation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["situation_id"], name: "index_start_situations_on_situation_id"
+    t.index ["story_id"], name: "index_start_situations_on_story_id"
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,4 +61,6 @@ ActiveRecord::Schema.define(version: 2020_04_04_161313) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "choices", "situations", column: "next_situation_id"
+  add_foreign_key "choices", "situations", column: "previous_situation_id"
 end

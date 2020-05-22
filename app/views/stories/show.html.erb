@@ -1,4 +1,5 @@
 <div class="container">
+  <%= link_to "Back to Stories List", stories_path %>
   <h1><%= @story.name %></h1>
   <h2><%= @story.description %></h2>
   <p><%= @story.situations.count %> Situations on this story</p>

@@ -1,5 +1,8 @@
 <div class="container">
   <%= simple_form_for [ @story, @situation ] do |f| %>
+    <% if params[:choice] %>
+      <%= f.hidden_field :previous_choice, value: params[:choice] %>
+    <% end %>
     <%= f.input :description %>
     <%= f.button :submit %>
   <% end %>

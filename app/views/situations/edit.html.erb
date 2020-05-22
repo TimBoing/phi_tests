@@ -1,5 +1,34 @@
 <div class="container centered-vertically">
-  <textarea id="edit-situation-description" rows="10" cols="50">
-    <%= @situation.description %>
-  </textarea>
+
+  <% if @previous_situation %>
+    <%= link_to "Previous Situation", edit_story_situation_path(@story, @previous_situation) %>
+  <% else %>
+    <%= link_to "Back to Story details", story_path(@story) %>
+  <% end %>
+
+  <%= link_to "Passer en mode lecture", story_situation_path(@story, @situation) %>
+
+  <p><%= @situation.description %></p>
+  <%= simple_form_for [ @story, @situation ] do |f| %>
+    <%= f.input :description %>
+    <%= f.button :submit, "Edit", class: "btn btn-primary" %>
+  <% end %>
+
+  <% @child_choices.each_with_index do |choice, index| %>
+    <p>Choice <%= index +1 %> : <%= choice.description %></p>
+    <% if choice.next_situation %>
+      <%= link_to "Go", story_situation_path(@story, choice.next_situation) %>
+    <% else %>
+      <%= link_to "Choose",  new_story_situation_path(choice: choice.id) %>
+    <% end %>
+      <%= link_to "-", story_situation_choice_path(@story, @situation, choice), method: :delete, data: { confirm: "Are you sure?" }, class: "no-class" %>
+  <% end %>
+
+  <%= simple_form_for [ @story, @situation, @choice ] do |f| %>
+    <%= f.input :description, label: false %>
+    <%= f.button :submit, "Add a choice", class: "btn btn-primary" %>
+  <% end %>
+
+
+
 </div>

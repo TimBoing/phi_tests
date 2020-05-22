@@ -1,5 +1,23 @@
 <div class="container centered-vertically">
+
+  <% if @previous_situation %>
+    <%= link_to "Previous Situation", story_situation_path(@story, @previous_situation) %>
+  <% else %>
+    <%= link_to "Back to Story details", story_path(@story) %>
+  <% end %>
+
+  <%= link_to "Edit Mode", edit_story_situation_path(@story, @situation)  %>
+
   <p><%= @situation.description %></p>
+
+  <% @child_choices.each_with_index do |choice, index| %>
+    <p>Choice <%= index +1 %> : <%= choice.description %></p>
+
+    <% if choice.next_situation %>
+      <%= link_to "Go", story_situation_path(@story, choice.next_situation) %>
+    <% end %>
+
+  <% end %>
 
 </div>
 

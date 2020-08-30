@@ -1,9 +1,45 @@
-<div class="container">
-  <%= simple_form_for [ @story, @situation ] do |f| %>
-    <% if params[:choice] %>
-      <%= f.hidden_field :previous_choice, value: params[:choice] %>
+<div class="structure-container">
+
+  <div class="structure-sidenav">
+
+    <% if @previous_situation %>
+      <%= link_to story_situation_path(@story, @previous_situation) do %>
+        <i class="fas fa-backward"></i>
+      <% end %>
+    <% else %>
+      <%= link_to story_path(@story) do %>
+        <i class="fas fa-backward"></i>
+      <% end %>
     <% end %>
-    <%= f.input :description %>
-    <%= f.button :submit %>
-  <% end %>
+
+
+    <!-- %#= link_to edit_story_situation_path(@story, @situation) do  %>
+      <i class="fas fa-edit"></i>
+    <%# end %> -->
+
+
+    <%= link_to stories_path do %>
+      <i class="fas fa-home"></i>
+    <% end %>
+
+  </div>
+
+  <div class="structure-content">
+
+    <div class="structure-title-container">
+      <h2>Nouvelle Situation</h2>
+    </div>
+
+    <div class="rounded-container">
+        <%= simple_form_for [ @story, @situation ] do |f| %>
+          <% if params[:choice] %>
+            <%= f.hidden_field :previous_choice, value: params[:choice] %>
+          <% end %>
+          <%= f.input :description %>
+          <%= f.button :submit %>
+        <% end %>
+    </div>
+  </div>
+
 </div>
+

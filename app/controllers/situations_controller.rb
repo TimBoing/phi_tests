@@ -70,3 +70,4 @@ class SituationsController < ApplicationController
   end
 end
 
+

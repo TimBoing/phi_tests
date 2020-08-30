@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :stories do
     resources :situations do
-      resources :choices, only: [:create, :destroy]
+      resources :choices, only: [:create, :destroy, :update]
     end
   end
 end

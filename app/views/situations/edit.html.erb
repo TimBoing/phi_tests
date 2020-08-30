@@ -83,7 +83,7 @@
               <% end %>
             </div>
             <div class="choice-options" data-choice="<%= index %>" >
-              <%= link_to new_story_situation_path(@story, choice.next_situation) do  %>
+              <%= link_to new_story_situation_path(@story, choice: choice.id) do  %>
                 <i class="fas fa-forward"></i>
               <% end %>
               <div class="edit-choice-btn" data-choice="<%= index %>">

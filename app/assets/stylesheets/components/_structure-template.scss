@@ -27,7 +27,7 @@
 
 
   .structure-content{
-    // width: 100%;
+    width: calc(80% - 100px);
     margin: 5vh 1vw;
     display: flex;
     flex-direction: column;

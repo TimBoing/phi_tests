@@ -1,26 +1,65 @@
-<div class="container centered-vertically">
+<div class="structure-container">
 
-  <% if @previous_situation %>
-    <%= link_to "Previous Situation", story_situation_path(@story, @previous_situation) %>
-  <% else %>
-    <%= link_to "Back to Story details", story_path(@story) %>
-  <% end %>
+  <div class="structure-sidenav">
 
-  <%= link_to "Edit Mode", edit_story_situation_path(@story, @situation)  %>
-
-  <div class="situation-container">
-    <%= @situation.description %>
-  </div>
-
-  <div class="choices-container">
-    <% @child_choices.each_with_index do |choice, index| %>
-      <p>Choice <%= index +1 %> : <%= choice.description %></p>
-
-      <% if choice.next_situation %>
-        <%= link_to "Go", story_situation_path(@story, choice.next_situation) %>
+    <% if @previous_situation %>
+      <%= link_to story_situation_path(@story, @previous_situation) do %>
+        <i class="fas fa-backward"></i>
       <% end %>
-
+    <% else %>
+      <%= link_to story_path(@story) do %>
+        <i class="fas fa-backward"></i>
+      <% end %>
     <% end %>
-  </div>
-</div>
 
+
+    <%= link_to edit_story_situation_path(@story, @situation) do  %>
+      <i class="fas fa-edit"></i>
+    <% end %>
+
+
+    <%= link_to stories_path do %>
+      <i class="fas fa-home"></i>
+    <% end %>
+
+  </div>
+
+  <div class="structure-content">
+
+    <div class="structure-title-container">
+      <h2><%= @story.name %></h2>
+    </div>
+
+    <div class="rounded-container">
+      <%= @situation.description %>
+    </div>
+
+    <div class="choices">
+      <% @child_choices.each_with_index do |choice, index| %>
+        <% if choice.next_situation %>
+          <%= link_to story_situation_path(@story, choice.next_situation) do  %>
+            <div class="rounded-container choice">
+              <h3>Choice <%= index +1 %></h3>
+              <p><%= choice.description %></p>
+              <div class="choice-ico green">
+                <i class="fas fa-circle"></i>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <%= link_to new_story_situation_path(@story, choice: choice.id) do  %>
+            <div class="rounded-container choice">
+              <h3>Choice <%= index +1 %></h3>
+              <p><%= choice.description %></p>
+              <div class="choice-ico red">
+                <i class="fas fa-circle"></i>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>

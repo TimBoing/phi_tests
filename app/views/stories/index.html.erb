@@ -1,8 +1,3 @@
-<div class="container">
-
-</div>
-
-
 
 <div class="structure-container">
 
@@ -24,15 +19,17 @@
     </div>
 
 
+    <div class="story-cards">
       <% @stories.each do |story| %>
         <%= link_to story_path(story) do %>
-          <div class="rounded-container">
-            <p><%= story.name %></p>
+          <div class="rounded-container story-card">
+            <h3><%= story.name %></h3>
             <p>Description: <%= story.description %></p>
             <p><%= story.situations.count %> Situations on this story</p>
           </div>
         <% end %>
       <% end %>
+    </div>
 
   </div>
 

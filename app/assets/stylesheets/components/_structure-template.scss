@@ -15,7 +15,9 @@
 
     i{
       color: rgb(224, 114, 255);
-      font-size: 35px;
+      font-size: 30px;
+      margin: 20px 0;
+      transition: all 0.5s;
 
       &:hover{
         transform: scale(1.1);
@@ -34,5 +36,55 @@
       margin-left: 20px;
     }
 
+    .story-cards, .choices{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 20px;
+
+      a{
+        text-decoration: none;
+      }
+      .story-card, .choice{
+        color: white;
+        transition: all 0.5s;
+        min-height: 150px;
+
+        h3{
+          color: rgb(224, 114, 255);
+          margin-bottom: 20px;
+        }
+
+        &:hover{
+          transform: scale(1.1);
+        }
+
+      }
+    }
+
+    .choice{
+      position: relative;
+
+      .del-ico{
+        position: absolute;
+        top: 100%;
+        left: 100%;
+      }
+      .choice-ico{
+        position: absolute;
+        top: 10px;
+        left: 85%;
+          &.green{
+            i{
+              color: green;
+            }
+          }
+          &.red{
+            i{
+              color: red;
+            }
+        }
+      }
+    }
   }
+
 }

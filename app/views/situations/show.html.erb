@@ -8,16 +8,19 @@
 
   <%= link_to "Edit Mode", edit_story_situation_path(@story, @situation)  %>
 
-  <p><%= @situation.description %></p>
+  <div class="situation-container">
+    <%= @situation.description %>
+  </div>
 
-  <% @child_choices.each_with_index do |choice, index| %>
-    <p>Choice <%= index +1 %> : <%= choice.description %></p>
+  <div class="choices-container">
+    <% @child_choices.each_with_index do |choice, index| %>
+      <p>Choice <%= index +1 %> : <%= choice.description %></p>
 
-    <% if choice.next_situation %>
-      <%= link_to "Go", story_situation_path(@story, choice.next_situation) %>
+      <% if choice.next_situation %>
+        <%= link_to "Go", story_situation_path(@story, choice.next_situation) %>
+      <% end %>
+
     <% end %>
-
-  <% end %>
-
+  </div>
 </div>
 

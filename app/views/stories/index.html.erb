@@ -1,8 +1,39 @@
 <div class="container">
-  <%= link_to "Create a story", new_story_path  %>
-  <ul class="list-group">
-    <% @stories.each do |story| %>
-      <li class="list-group-item"><%= link_to story.name, story_path(story) %></li>
+
+</div>
+
+
+
+<div class="structure-container">
+
+  <div class="structure-sidenav">
+    <%= link_to root_path do %>
+      <i class="fas fa-home"></i>
     <% end %>
-  </ul>
+
+    <%= link_to new_story_path do %>
+      <i class="fas fa-plus-circle"></i>
+    <% end %>
+
+  </div>
+
+  <div class="structure-content">
+
+    <div class="structure-title-container">
+      <h2>All Stories</h2>
+    </div>
+
+
+      <% @stories.each do |story| %>
+        <%= link_to story_path(story) do %>
+          <div class="rounded-container">
+            <p><%= story.name %></p>
+            <p>Description: <%= story.description %></p>
+            <p><%= story.situations.count %> Situations on this story</p>
+          </div>
+        <% end %>
+      <% end %>
+
+  </div>
+
 </div>

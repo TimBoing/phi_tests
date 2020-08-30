@@ -1,8 +1,8 @@
-<div class="container centerd-vertically">
-  <h1>Welcome to the creator! Create a new story :</h1>
-  <%= simple_form_for @story do |f| %>
+<div class="container centered-vertically full-screen-height">
+  <h1>Create a new story :</h1>
+  <%= simple_form_for @story,html: { class: "rounded-container centered-vertically"} do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "oval-bordered-button" %>
   <% end %>
 </div>

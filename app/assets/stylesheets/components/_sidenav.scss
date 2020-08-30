@@ -1,0 +1,21 @@
+.sidenav{
+  position: absolute;
+  left: 20px;
+  top: 5vh;
+  height: 90vh;
+  background-color: rgba(29,21,94,0.7);
+  border-radius: 40px;
+  padding: 30px;
+  width: 100px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  text-align: center;
+
+  i{
+    color: rgb(224, 114, 255);
+    font-size: 35px;
+
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+}

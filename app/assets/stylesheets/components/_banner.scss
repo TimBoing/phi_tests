@@ -1,0 +1,19 @@
+.banner{
+  height: 100vh;
+
+  .main-title{
+    font-family: 'Fredericka the Great', cursive;
+  }
+
+  .options-container{
+    margin: 50px;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h1{
+    font-size: 60px;
+  }
+}

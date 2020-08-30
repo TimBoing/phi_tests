@@ -1,0 +1,38 @@
+.structure-container{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+
+  .structure-sidenav{
+    height: 90vh;
+    margin: 5vh 1vw;
+    background-color: rgba(29,21,94,0.7);
+    border-radius: 40px;
+    padding: 30px;
+    width: 100px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-align: center;
+
+    i{
+      color: rgb(224, 114, 255);
+      font-size: 35px;
+
+      &:hover{
+        transform: scale(1.1);
+      }
+    }
+  }
+
+
+  .structure-content{
+    // width: 100%;
+    margin: 5vh 1vw;
+    display: flex;
+    flex-direction: column;
+
+    .structure-title-container{
+      margin-left: 20px;
+    }
+
+  }
+}

@@ -30,10 +30,6 @@
       <h2><%= @story.name %></h2>
     </div>
 
-    <div class="rounded-container">
-      <%= @situation.description %>
-    </div>
-
     <div class="choices">
       <% @child_choices.each_with_index do |choice, index| %>
         <% if choice.next_situation %>
@@ -57,6 +53,36 @@
             </div>
           <% end %>
         <% end %>
+      <% end %>
+    </div>
+
+    <div class="rounded-container white">
+      <%= @situation.description %>
+    </div>
+
+    <div class="rounded-container">
+      <% loop do %>
+        <% @loop_start_parent = @loop_start.parent_choice %>
+        <% break if @loop_start_parent.nil? %>
+        <!-- <p> - <%#= @loop_start.description %></p> -->
+        <% @loop_start = @loop_start_parent.previous_situation %>
+        <div class="choices">
+          <% @loop_start.child_choices.sort_by{|c| c.id}.each_with_index do |choice, index| %>
+            <% if choice ==  @loop_start_parent %>
+              <div class="rounded-container choice selected">
+                <h3>Choice <%= index +1 %></h3>
+                <p><%= choice.description %></p>
+              </div>
+            <% else %>
+              <div class="rounded-container choice">
+                <h3>Choice <%= index +1 %></h3>
+                <p><%= choice.description %></p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <% break if @loop_start.nil? %>
+        <p> - <%= @loop_start.description %></p>
       <% end %>
     </div>
 

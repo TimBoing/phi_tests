@@ -4,4 +4,32 @@
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  &.white{
+    background-color: white;
+    color: rgb(29,21,94);
+  }
+}
+
+
+
+.add-new-choice-container{
+  // background-color: rgba(29,21,94,0.5);
+  margin: 20px;
+  border: 3px dashed white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-size: 50px;
+  color: white;
+  // color: rgb(224, 114, 255);
+  transition: all 0.5s;
+
+  &:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+
+
 }

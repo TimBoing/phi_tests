@@ -4,17 +4,29 @@ class SituationsController < ApplicationController
 
   def show
 
+    # raise
     @story = Story.find(params[:story_id])
     @situation = Situation.find(params[:id])
     @child_choices = @situation.child_choices.sort_by{|c| c.id}
     @parent_choice = @situation.parent_choice
     @previous_situation = @parent_choice.previous_situation if @parent_choice
+    @loop_start = @situation
+
 
   end
 
   def new
+
+
     @story = Story.find(params[:story_id])
+    # @previous_situation = @parent_choice.previous_situation if @parent_choice
     @situation = Situation.new
+    if params[:choice]
+      @previous_choice = Choice.find(params[:choice])
+      @previous_situation = @previous_choice.previous_situation
+    end
+
+
   end
 
   def create
@@ -58,6 +70,12 @@ class SituationsController < ApplicationController
       render edit_story_situation(@story, @situation)
     end
 
+  end
+
+  def return_situation
+    # render json: {tamere: "le slip"} and return
+    render json: {situation: Situation.first} and return
+    # return Situation.first
   end
 
   private

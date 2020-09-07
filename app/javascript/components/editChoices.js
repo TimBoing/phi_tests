@@ -3,6 +3,7 @@ const editChoices = () => {
   if(!editChoiceBtns) return;
   let choiceEditions = document.querySelectorAll(".choice-edition");
   let choiceOptions = document.querySelectorAll(".choice-options");
+  let cancelEditionBtn = document.querySelectorAll(".cancel-choice-edition");
 
 
   editChoiceBtns.forEach((btn) => {
@@ -23,6 +24,21 @@ const editChoices = () => {
         }else{
           op.style.display = "flex";
         }
+      });
+    });
+  });
+
+
+
+  cancelEditionBtn.forEach((btn) =>{
+    let theChoice = btn.dataset.choice;
+    btn.addEventListener('click', (event) => {
+      choiceEditions.forEach((ed) => {
+        ed.style.display = "none";
+      });
+
+      choiceOptions.forEach((op) => {
+        op.style.display = "flex";
       });
     });
   });

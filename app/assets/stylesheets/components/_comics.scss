@@ -1,0 +1,57 @@
+.comics-container{
+  margin: 0 10%;
+  border: 5px solid black;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .comics-image-container{
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    border: 5px solid black;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // margin: 20px 0;
+
+
+    img{
+      height: 80%;
+      width: 80%;
+      object-fit: contain;
+      // border: 5px solid black;
+    }
+
+
+    .comics-paragraph{
+      // margin: 20px;
+      position: absolute;
+      top: 80%;
+      width: 80%;
+      padding: 20px;
+      border: 5px solid black;
+      background-color: white;
+      color: black;
+      height: 20vh;
+      font-family: 'Comic Neue', cursive;
+    }
+  }
+
+
+
+
+  .choices-comics{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 20vh;
+    border: 5px solid white;
+    background-color: white;
+
+  }
+
+}

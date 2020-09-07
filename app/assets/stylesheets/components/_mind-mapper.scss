@@ -1,0 +1,21 @@
+#mind-mapper{
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  overflow: scroll;
+
+  #mind-table{
+    td{
+      height: 50px;
+      min-width: 200px;
+      max-width: 200px;
+      border: 1px solid black;
+
+      &:hover{
+        background-color: $light-gray;
+        cursor: pointer;
+      }
+
+    }
+  }
+}
